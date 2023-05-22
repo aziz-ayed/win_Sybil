@@ -1,24 +1,10 @@
 from sybil.loaders.abstract_loader import abstract_loader
-import cv2
 import torch
 import pydicom
 from pydicom.pixel_data_handlers.util import apply_modality_lut
 import numpy as np
 
 LOADING_ERROR = "LOADING ERROR! {}"
-
-
-class OpenCVLoader(abstract_loader):
-
-    def load_input(self, path, sample):
-        """
-        loads as grayscale image
-        """
-        return {"input": cv2.imread(path, 0) }
-
-    @property
-    def cached_extension(self):
-        return ".png"
 
 
 class DicomLoader(abstract_loader):

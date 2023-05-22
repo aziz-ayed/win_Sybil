@@ -9,7 +9,7 @@ from sybil.augmentations import get_augmentations
 from tqdm import tqdm 
 from sybil.serie import Serie
 from sybil.datasets.utils import order_slices, METAFILE_NOTFOUND_ERR, LOAD_FAIL_MSG
-from sybil.loaders.image_loaders import OpenCVLoader, DicomLoader 
+from sybil.loaders.image_loaders import DicomLoader 
 
 
 
@@ -40,7 +40,7 @@ class CSVDataset(data.Dataset):
         if args.img_file_type == 'dicom':
             self.input_loader = DicomLoader(args.cache_path, augmentations, args)  
         else:
-            self.input_loader = OpenCVLoader(args.cache_path, augmentations, args)
+            print("Error! No OpenCV.")
             
         self.dataset = self.create_dataset(split_group)
         if len(self.dataset) == 0:
