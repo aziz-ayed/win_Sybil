@@ -3,6 +3,8 @@ import torchvision
 from sybil.models.cumulative_probability_layer import Cumulative_Probability_Layer
 from sybil.models.pooling_layer import MultiAttentionPool
 from sybil.datasets.nlst_risk_factors import NLSTRiskFactorVectorizer
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 
 class SybilNet(nn.Module):
